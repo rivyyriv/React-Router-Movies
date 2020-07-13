@@ -3,6 +3,7 @@ import React from 'react';
 const MovieList = props => {
   return (
     <div className="movie-list">
+      <h1>TEST</h1>
       {props.movies.map(movie => (
         <MovieDetails key={movie.id} movie={movie} />
       ))}
