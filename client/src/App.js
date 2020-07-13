@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
+import MovieList from "./Movies/MovieList";
 import SavedList from './Movies/SavedList';
 
 const App = () => {
@@ -26,11 +28,20 @@ const App = () => {
   };
 
   return (
-    <div>
+    <Router>
+
       <SavedList list={savedList} />
-      <div>Replace this Div with your Routes</div>
-    </div>
+
+       
+        <Link to="/MovieList">MovieList</Link>
+
+        <Switch>
+          <Route exact path="/MovieList">
+             <MovieList movies={movieList} />
+          </Route>
+        </Switch>
+
+    </Router>
   );
 };
-
 export default App;
